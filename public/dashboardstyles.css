@@ -1,0 +1,55 @@
+.container {
+    padding: 100px 10px;
+}
+
+#button-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 60px;
+}
+
+#add-student {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#sec {
+    background: #f6f6f6;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#sec:hover {
+    background: #e3e3e3;
+}
+
+body > div > div:nth-child(2) > div {
+    transition: all ease-in-out 200ms;
+}
+
+body > div > div:nth-child(2) > div:hover {
+    transform: scale(1.02);
+}
+
+a#stud:hover {
+    text-decoration: none;
+}
+
+#name, #dept {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+span {
+    padding: 20px 0px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #2f4f4f;
+    transition: all ease-in-out 100ms;
+}
+
+span:hover {
+    color: #ff001a;
+    font-size: 40px;
+}
+

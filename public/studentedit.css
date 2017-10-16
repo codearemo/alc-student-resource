@@ -1,0 +1,14 @@
+.container {
+    padding: 100px 10px;
+}
+
+#button-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 60px;
+}
+
+#add-student {
+    cursor: pointer;
+    padding: 10px 20px;
+}

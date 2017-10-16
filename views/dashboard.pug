@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    link(type='text/css', rel='stylesheet', href='/dashboardstyles.css')
+
+    body
+      nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/') ALC College
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo02', aria-controls='navbarTogglerDemo02', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarTogglerDemo02.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item.active
+              a.nav-link(href='/')
+                | Dashboard
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='/student/add') Add Student
+      .container
+        #button-row.row
+          button#add-student.btn.btn-outline-secondary(type='button') Add Student
+        .row
+          #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                  .modal-dialog(role='document')
+                    .modal-content
+                      .modal-header
+                        h5#exampleModalLabel.modal-title Delete Student Resource
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                          span(aria-hidden='true') ×
+                      .modal-body
+                        | Are you sure you want to delete this student's resource?
+                      .modal-footer
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                        button#delete-btn-home.btn.btn-danger(type='button') Delete
+          each student, i in students
+            .col-md-4
+              button.close(type='button', data-toggle='modal', data-target='#exampleModal', aria-label='Close', data-id=`${student._id}`)
+                span(aria-hidden='true') ×
+              
+              a(href=`/studentview/${student._id}`, id='stud')
+                #sec.rounded
+                  img.rounded.mx-auto.d-block(src=`${student.img}`, alt='...')
+                  p#name #{student.name}
+                  p#dept.font-italic +#{student.mobile}

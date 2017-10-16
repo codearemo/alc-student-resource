@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    link(type='text/css', rel='stylesheet', href='/studentadd.css')
+
+    body
+      nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/') ALC College
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo02', aria-controls='navbarTogglerDemo02', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarTogglerDemo02.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item
+              a.nav-link(href='/')
+                | Dashboard
+                span.sr-only (current)
+            li.nav-item.active
+              a.nav-link(href='/student/add') Add Student
+      .container
+        h1 Add Student
+        .row
+          .col-md-10
+            form(method="POST", action="/student/add")
+                    .form-group
+                      label(for='name') Name
+                      input#name.form-control(placeholder='Surname Firstname', name = "name")
+                    .form-group
+                      label(for='mobile') Mobile
+                      input#mobile.form-control(placeholder='+2348XXXXXXXX', name = "mobile")
+                    .form-group
+                      label(for='dob') Date of Birth 
+                      input#dob.form-control(placeholder='dd/mm/yy', name = "dob")
+                    .form-group
+                      label(for='exampleFormControlSelect1') Gender
+                      select#exampleFormControlSelect1.form-control(name = "g")
+                        option M
+                        option F
+                    .form-group
+                      label Image
+                      small#emailHelp.form-text.text-muted Changing image will be available in latter versions
+                      input.form-control(type='text', placeholder='Readonly input here…', readonly='', value = "https://ssl.prcdn.com/uk/people/default-profile.png?1406639312", name = "img")
+                    br
+                    button.btn.btn-primary(type='submit') Add Student Resource
