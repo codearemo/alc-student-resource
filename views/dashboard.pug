@@ -17,6 +17,7 @@ block content
             li.nav-item
               a.nav-link(href='/student/add') Add Student
       .container
+        != messages('message', locals)
         #button-row.row
           button#add-student.btn.btn-outline-secondary(type='button') Add Student
         .row

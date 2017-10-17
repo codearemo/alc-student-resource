@@ -2,6 +2,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser'); 
+var expressValidator = require('express-validator');
+var flash = require('connect-flash');
+var session = require('express-session');
 
 mongoose.connect('mongodb://localhost/alc-students-resource');
 var db = mongoose.connection;
@@ -33,7 +36,38 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 // Setting static folder
 app.use(express.static('./public/'));
 
+// Express Session Middleware
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
 
+// Express Messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+// Express Validator Middleware
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+    var namespace = param.split('.')
+    , root = namespace.shift()
+    , formParam = root;
+    
+    while(namespace.length) {
+      formParam += '[' + namespace + ']';
+    }
+
+    return{
+      param: formParam,
+      msg: msg,
+      value: value
+    };
+  }
+}));
 
 // Home Route
 app.get('/', (req, res) => {
@@ -81,22 +115,40 @@ app.get('/student/add', (req, res) => {
 
 // Submitting Student Add
 app.post('/student/add',urlencodedParser, (req, res) => {
-  var student = new Student();
-  student.name = req.body.name;
-  student.mobile = req.body.mobile;
-  student.dob = req.body.dob;
-  student.g = req.body.g;
-  student.img = req.body.img;
+  // Validating form
+  req.checkBody('name', 'Required field is empty').notEmpty();
+  req.checkBody('mobile', 'Required field is empty').notEmpty();
+  req.checkBody('dob', 'Required field is empty').notEmpty();
 
-  student.save(err => {
-    if(err) {
-      console.log(err);
-      return;
-    }
-    else {
-      res.redirect('/');
-    }
-  })
+  // Error(s) check
+  var errors = req.validationErrors();
+
+  if(errors) {
+    res.render('studentadd', {
+      errors: errors
+    });
+  }
+  else {
+    // Adding new student resource
+    var student = new Student();
+    student.name = req.body.name;
+    student.mobile = req.body.mobile;
+    student.dob = req.body.dob;
+    student.g = req.body.g;
+    student.img = req.body.img;
+
+    student.save(err => {
+      if(err) {
+        console.log(err);
+        return;
+      }
+      else {
+        // Alert for newly added student resource.
+        req.flash('success', 'Student Resource Added.');
+        res.redirect('/');
+      }
+    });
+  }
 });
 
 // After editing student resourse
@@ -116,6 +168,8 @@ app.post('/studentview/edit/:id', urlencodedParser, (req, res) => {
       return;
     }
     else {
+      // Alert for saved edit(s).
+      req.flash('primary', 'Student Resource Edit Saved.');
       res.redirect('/studentview/'+ query._id);
     }
   });
@@ -128,6 +182,8 @@ app.delete('/studentview/:id', (req, res) => {
     if(err) {
       console.log(err);
     }
+    // Alert for deleted student resource.
+    req.flash('danger', 'Student Resource Deleted.');
     res.send('Success');
   });
 });

@@ -17,20 +17,22 @@ block content
             li.nav-item
               a.nav-link(href='/student/add') Add Student
       .container
+        != messages('message', locals)
         #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-                  .modal-dialog(role='document')
-                    .modal-content
-                      .modal-header
-                        h5#exampleModalLabel.modal-title Delete Student Resource
-                        button.close(type='button', data-dismiss='modal', aria-label='Close')
-                          span(aria-hidden='true') ×
-                      .modal-body
-                        | Are you sure you want to delete this student's resource?
-                      .modal-footer
-                        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-                        button#delete-btn-home.btn.btn-danger(type='button') Delete
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header
+                h5#exampleModalLabel.modal-title Delete Student Resource
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body
+                | Are you sure you want to delete this student's resource?
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                button#delete-btn-home.btn.btn-danger(type='button') Delete
         .row
-          h2 Student Profile
+          .col-md-12
+            h2 Student Profile
           .col-md-4
             .col-md-12
               img(src=`${student.img}`, alt='')
@@ -52,7 +54,7 @@ block content
                   | Mobile: 
                   em +#{student.mobile}
                 ul
-          #records.col-md-7
+          .col-md-7#records
             h4.recordsheader Education
             ul
               li
