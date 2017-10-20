@@ -18,8 +18,11 @@ block content
               a.nav-link(href='/student/add') Add Student
       .container
         h2 Add Student
+        .col-lg-4
+            if errors
+                div(class="alert alert-danger") #{errors[1].msg}
         .row
-          .col-md-8
+          .col-lg-8
             form(method="POST", action="/student/add")
               .form-group
                 label(for='firstname') Firstname
@@ -75,7 +78,4 @@ block content
                   option Pass
               br
               button.btn.btn-primary(type='submit') Add Student Resource
-          .col-md-4
-            if errors
-              each error in errors
-                div(class="alert alert-danger") #{error.msg}
+          

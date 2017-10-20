@@ -17,8 +17,11 @@ block content
             li.nav-item
               a.nav-link(href='/student/add') Add Student
       .container
+        .col-lg-4
+            if errors
+                div(class="alert alert-danger") #{errors[1].msg}
         .row
-          .col-md-10
+          .col-lg-8
             h2 Edit Student Resource
             form(method="POST", action="/studentview/edit/" + student._id)
               .form-group
