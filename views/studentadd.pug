@@ -22,14 +22,20 @@ block content
           .col-md-8
             form(method="POST", action="/student/add")
               .form-group
-                label(for='name') Name
-                input#name.form-control(placeholder='Surname Firstname', name = "name")
+                label(for='firstname') Firstname
+                input#firstname.form-control(placeholder='Firstname', name = "firstname")
+              .form-group
+                label(for='lastname') Lastname
+                input#lastname.form-control(placeholder='Lastname', name = "lastname")
               .form-group
                 label(for='mobile') Mobile
                 input#mobile.form-control(placeholder='+2348XXXXXXXX', name = "mobile")
               .form-group
                 label(for='dob') Date of Birth 
                 input#dob.form-control(placeholder='dd/mm/yy', name = "dob")
+              .form-group
+                label(for='email') Email
+                input#email.form-control(placeholder='name@domain.com', name = "email", type="email")
               .form-group
                 label(for='exampleFormControlSelect1') Gender
                 select#exampleFormControlSelect1.form-control(name = "g")
@@ -39,6 +45,34 @@ block content
                 label Image
                 small#emailHelp.form-text.text-muted Changing image will be available in latter versions
                 input.form-control(type='text', placeholder='Readonly input here…', readonly='', value = "https://ssl.prcdn.com/uk/people/default-profile.png?1406639312", name = "img")
+              .form-group
+                label(for='faculty') Faculty
+                input#faculty.form-control(placeholder='Faculty', name = "faculty")
+              .form-group
+                label(for='dept') Department 
+                input#dept.form-control(placeholder='Department', name = "dept")
+              .form-group
+                label(for='exampleFormControlSelect1') Level
+                select#exampleFormControlSelect1.form-control(name = "level")
+                  option 100
+                  option 200
+                  option 300
+                  option 400
+                  option 500
+              .form-group
+                label(for='total') Total Students
+                input#total.form-control(placeholder='Class Total', name = "total")
+              .form-group
+                label(for='rank') Stundent's Class Rank
+                input#rank.form-control(placeholder='Student Rank', name = "rank")
+              .form-group
+                label(for='exampleFormControlSelect1') grade
+                select#exampleFormControlSelect1.form-control(name = "grade")
+                  option 1st Class
+                  option 2nd Class upper
+                  option 2nd Class lower
+                  option 3rd Class
+                  option Pass
               br
               button.btn.btn-primary(type='submit') Add Student Resource
           .col-md-4

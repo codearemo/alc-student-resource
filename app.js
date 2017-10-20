@@ -6,7 +6,7 @@ var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var session = require('express-session');
 
-mongoose.connect('mongodb://localhost/alc-students-resource');
+mongoose.connect('mongodb://test:test@ds127375.mlab.com:27375/alc-students-resource');
 var db = mongoose.connection;
 
 //Check connection
@@ -116,9 +116,16 @@ app.get('/student/add', (req, res) => {
 // Submitting Student Add
 app.post('/student/add',urlencodedParser, (req, res) => {
   // Validating form
-  req.checkBody('name', 'Required field is empty').notEmpty();
+  req.checkBody('firstname', 'Required field is empty').notEmpty();
+  req.checkBody('lastname', 'Required field is empty').notEmpty();
   req.checkBody('mobile', 'Required field is empty').notEmpty();
   req.checkBody('dob', 'Required field is empty').notEmpty();
+  req.checkBody('email', 'Required field is empty').notEmpty();
+  req.checkBody('faculty', 'Required field is empty').notEmpty();
+  req.checkBody('dept', 'Required field is empty').notEmpty();
+  req.checkBody('level', 'Required field is empty').notEmpty();
+  req.checkBody('total', 'Required field is empty').notEmpty();
+  req.checkBody('rank', 'Required field is empty').notEmpty();
 
   // Error(s) check
   var errors = req.validationErrors();
@@ -131,11 +138,20 @@ app.post('/student/add',urlencodedParser, (req, res) => {
   else {
     // Adding new student resource
     var student = new Student();
-    student.name = req.body.name;
+
+    student.firstname = req.body.firstname;
+    student.lastname = req.body.lastname;
     student.mobile = req.body.mobile;
     student.dob = req.body.dob;
+    student.email = req.body.email;
     student.g = req.body.g;
     student.img = req.body.img;
+    student.faculty = req.body.faculty;
+    student.dept = req.body.dept;
+    student.level = req.body.level;
+    student.total = req.body.total;
+    student.rank = req.body.rank;
+    student.grade = req.body.grade;
 
     student.save(err => {
       if(err) {
@@ -154,11 +170,19 @@ app.post('/student/add',urlencodedParser, (req, res) => {
 // After editing student resourse
 app.post('/studentview/edit/:id', urlencodedParser, (req, res) => {
   var student = {};
-  student.name = req.body.name;
+  student.firstname = req.body.firstname;
+  student.lastname = req.body.lastname;
   student.mobile = req.body.mobile;
   student.dob = req.body.dob;
+  student.email = req.body.email;
   student.g = req.body.g;
   student.img = req.body.img;
+  student.faculty = req.body.faculty;
+  student.dept = req.body.dept;
+  student.level = req.body.level;
+  student.total = req.body.total;
+  student.rank = req.body.rank;
+  student.grade = req.body.grade;
   
   var query = {_id: req.params.id};
 
@@ -169,7 +193,7 @@ app.post('/studentview/edit/:id', urlencodedParser, (req, res) => {
     }
     else {
       // Alert for saved edit(s).
-      req.flash('primary', 'Student Resource Edit Saved.');
+      req.flash('primary', 'Student Resource Update Saved.');
       res.redirect('/studentview/'+ query._id);
     }
   });
@@ -189,6 +213,6 @@ app.delete('/studentview/:id', (req, res) => {
 });
 
 // Start Server
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Listening to 127.0.0.1:3000");
 });

@@ -21,6 +21,10 @@ block content
         #button-row.row
           button#add-student.btn.btn-outline-secondary(type='button') Add Student
         .row
+        if students.length == 0
+          div#no-student-res
+            h2#no-text No Student Resource Available
+        else
           #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
                   .modal-dialog(role='document')
                     .modal-content
@@ -41,5 +45,5 @@ block content
               a(href=`/studentview/${student._id}`, id='stud')
                 #sec.rounded
                   img.rounded.mx-auto.d-block(src=`${student.img}`, alt='...')
-                  p#name #{student.name}
-                  p#dept.font-italic +#{student.mobile}
+                  p#name #{student.lastname} #{student.firstname}
+                  p#dept.font-italic #{student.id}

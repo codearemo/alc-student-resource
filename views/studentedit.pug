@@ -22,25 +22,58 @@ block content
             h2 Edit Student Resource
             form(method="POST", action="/studentview/edit/" + student._id)
               .form-group
-                label(for='name') Name
-                input#name.form-control(placeholder='Surname Firstname', value = student.name, name = "name")
+                label(for='firstname') Firstname
+                input#firstname.form-control(placeholder='Firstname', name = "firstname", value = student.firstname)
+              .form-group
+                label(for='lastname') Lastname
+                input#lastname.form-control(placeholder='Lastname', name = "lastname", value = student.lastname)
               .form-group
                 label(for='mobile') Mobile
-                input#mobile.form-control(placeholder='+2348XXXXXXXX', value = student.mobile, name = "mobile")
+                input#mobile.form-control(placeholder='+2348XXXXXXXX', name = "mobile", value = student.mobile)
               .form-group
                 label(for='dob') Date of Birth 
-                input#dob.form-control(placeholder='dd/mm/yy', value = student.dob, name = "dob")
+                input#dob.form-control(placeholder='dd/mm/yy', name = "dob", value = student.dob)
+              .form-group
+                label(for='email') Email
+                input#email.form-control(placeholder='name@domain.com', name = "email", type="email", value = student.email)
               .form-group
                 label(for='exampleFormControlSelect1') Gender
-                select#exampleFormControlSelect1.form-control(value = student.g, name = "g")
+                select#exampleFormControlSelect1.form-control(name = "g", value = student.g)
                   option M
                   option F
               .form-group
                 label Image
                 small#emailHelp.form-text.text-muted Changing image will be available in latter versions
-                input.form-control(type='text', placeholder='Readonly input here…', readonly='', value = student.img, name = "img")
-
+                input.form-control(type='text', placeholder='Readonly input here…', readonly='', value = "https://ssl.prcdn.com/uk/people/default-profile.png?1406639312", name = "img")
+              .form-group
+                label(for='faculty') Faculty
+                input#faculty.form-control(placeholder='Faculty', name = "faculty", value = student.faculty)
+              .form-group
+                label(for='dept') Department 
+                input#dept.form-control(placeholder='Department', name = "dept", value = student.dept)
+              .form-group
+                label(for='exampleFormControlSelect1') Level
+                select#exampleFormControlSelect1.form-control(name = "level", value = student.level)
+                  option 100
+                  option 200
+                  option 300
+                  option 400
+                  option 500
+              .form-group
+                label(for='total') Total Students
+                input#total.form-control(placeholder='Class Total', name = "total", value = student.total)
+              .form-group
+                label(for='rank') Stundent's Class Rank
+                input#rank.form-control(placeholder='Student Rank', name = "rank", value = student.rank)
+              .form-group
+                label(for='exampleFormControlSelect1') grade
+                select#exampleFormControlSelect1.form-control(name = "grade", value = student.grade)
+                  option 1st Class
+                  option 2nd Class upper
+                  option 2nd Class lower
+                  option 3rd Class
+                  option Pass
               br
               button.btn.btn-primary(type='submit') Update Student Resource
-        
-            
+          
+              

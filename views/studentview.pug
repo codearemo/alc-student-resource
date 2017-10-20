@@ -40,8 +40,14 @@ block content
               h4.recordsheader Personal
               ul
                 li
-                  | Name: 
-                  em #{student.name}
+                  | Lastname: 
+                  em #{student.lastname}
+                li
+                  | Firstname: 
+                  em #{student.firstname}
+                li
+                  | Id: 
+                  em #{student._id}
                 li
                   | Gender: 
                   em #{student.g}
@@ -59,22 +65,22 @@ block content
             ul
               li
                 | Faculty: 
-                em Faculty
+                em #{student.faculty}
               li
                 | Department: 
-                em Department
+                em #{student.dept}
               li
-                | Level: 500
-                em
+                | Level: 
+                em #{student.level}
               li
                 | Class Total: 
-                em Class Total
+                em #{student.total}
               li
                 | Rank: 
-                em Rank
+                em #{student.rank}
               li
-                | CGPA: 
-                em CGPA
+                | Grade: 
+                em #{student.grade}
               ul
         #button-row.row
           #button-back.row
