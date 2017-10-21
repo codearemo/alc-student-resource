@@ -116,16 +116,16 @@ app.get('/student/add', (req, res) => {
 // Submitting Student Add
 app.post('/student/add',urlencodedParser, (req, res) => {
   // Validating form
-  req.checkBody('firstname', 'Required field is empty').notEmpty();
-  req.checkBody('lastname', 'Required field is empty').notEmpty();
-  req.checkBody('mobile', 'Required field is empty').notEmpty();
-  req.checkBody('dob', 'Required field is empty').notEmpty();
-  req.checkBody('email', 'Required field is empty').notEmpty();
-  req.checkBody('faculty', 'Required field is empty').notEmpty();
-  req.checkBody('dept', 'Required field is empty').notEmpty();
-  req.checkBody('level', 'Required field is empty').notEmpty();
-  req.checkBody('total', 'Required field is empty').notEmpty();
-  req.checkBody('rank', 'Required field is empty').notEmpty();
+  req.checkBody('firstname', 'Required field(s) is empty').notEmpty();
+  req.checkBody('lastname', 'Required field(s) is empty').notEmpty();
+  req.checkBody('mobile', 'Required field(s) is empty').notEmpty();
+  req.checkBody('dob', 'Required field(s) is empty').notEmpty();
+  req.checkBody('email', 'Required field(s) is empty').notEmpty();
+  req.checkBody('faculty', 'Required field(s) is empty').notEmpty();
+  req.checkBody('dept', 'Required field(s) is empty').notEmpty();
+  req.checkBody('level', 'Required field(s) is empty').notEmpty();
+  req.checkBody('total', 'Required field(s) is empty').notEmpty();
+  req.checkBody('rank', 'Required field(s) is empty').notEmpty();
 
   // Error(s) check
   var errors = req.validationErrors();
