@@ -21,6 +21,7 @@ div#no-student-res {
     height: 40vh;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 h2#no-text {
