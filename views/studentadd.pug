@@ -18,11 +18,11 @@ block content
               a.nav-link(href='/student/add') Add Student
       .container
         h2 Add Student
-        .col-lg-4
+        .col-md-4
             if errors
                 div(class="alert alert-danger") #{errors[1].msg}
         .row
-          .col-lg-8
+          .col-md-8
             form(method="POST", action="/student/add")
               .form-group
                 label(for='firstname') Firstname
