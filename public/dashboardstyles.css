@@ -5,7 +5,9 @@
 #button-row {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #add-student {
