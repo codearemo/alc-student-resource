@@ -76,7 +76,8 @@ app.get('/', (req, res) => {
       console.log(err);
     }
     else {
-      res.render('dashboard', {students: students});
+      // I also sorted the list so they can be scanned through easily ;-)
+      res.render('dashboard', {students: students.sort((a,b) => a.lastname > b.lastname ? 1 : -1)});
     }
   });
 });
