@@ -214,6 +214,6 @@ app.delete('/studentview/:id', (req, res) => {
 });
 
 // Start Server
-app.listen(process.env.port || 3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Listening to 127.0.0.1:3000");
 });
