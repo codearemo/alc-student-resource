@@ -32,10 +32,13 @@ block content
                 input#lastname.form-control(placeholder='Lastname', name = "lastname")
               .form-group
                 label(for='mobile') Mobile
-                input#mobile.form-control(placeholder='234XXXXXXXXX', name = "mobile")
+                input#mobile.form-control(placeholder='234XXXXXXXXXX', name = "mobile",type='tel')
               .form-group
                 label(for='dob') Date of Birth 
-                input#dob.form-control(placeholder='dd/mm/yy', name = "dob")
+                #datepicker.input-group.date(data-date-format='dd-mm-yyyy')
+                  input.form-control(type='date', name='dob')
+                  span.input-group-addon
+                    i.fa.fa-calendar(aria-hidden='true')
               .form-group
                 label(for='email') Email
                 input#email.form-control(placeholder='name@domain.com', name = "email", type="email")
@@ -50,10 +53,10 @@ block content
                 input.form-control(type='text', placeholder='Readonly input here…', readonly='', value = "https://ssl.prcdn.com/uk/people/default-profile.png?1406639312", name = "img")
               .form-group
                 label(for='faculty') Faculty
-                input#faculty.form-control(placeholder='Faculty', name = "faculty")
+                input#faculty.form-control(placeholder='Faculty', name = "faculty", type="text")
               .form-group
                 label(for='dept') Department 
-                input#dept.form-control(placeholder='Department', name = "dept")
+                input#dept.form-control(placeholder='Department', name = "dept", type="text")
               .form-group
                 label(for='exampleFormControlSelect1') Level
                 select#exampleFormControlSelect1.form-control(name = "level")
@@ -64,10 +67,10 @@ block content
                   option 500
               .form-group
                 label(for='total') Total Students
-                input#total.form-control(placeholder='Class Total', name = "total")
+                input#total.form-control(placeholder='Class Total', name = "total", type = "number")
               .form-group
                 label(for='rank') Stundent's Class Rank
-                input#rank.form-control(placeholder='Student Rank', name = "rank")
+                input#rank.form-control(placeholder='Student Rank', name = "rank", type = "number")
               .form-group
                 label(for='exampleFormControlSelect1') grade
                 select#exampleFormControlSelect1.form-control(name = "grade")

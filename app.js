@@ -117,16 +117,16 @@ app.get('/student/add', (req, res) => {
 // Submitting Student Add
 app.post('/student/add',urlencodedParser, (req, res) => {
   // Validating form
-  req.checkBody('firstname', 'Required field(s) is empty').notEmpty();
-  req.checkBody('lastname', 'Required field(s) is empty').notEmpty();
-  req.checkBody('mobile', 'Required field(s) is empty').notEmpty();
-  req.checkBody('dob', 'Required field(s) is empty').notEmpty();
-  req.checkBody('email', 'Required field(s) is empty').notEmpty();
-  req.checkBody('faculty', 'Required field(s) is empty').notEmpty();
-  req.checkBody('dept', 'Required field(s) is empty').notEmpty();
-  req.checkBody('level', 'Required field(s) is empty').notEmpty();
-  req.checkBody('total', 'Required field(s) is empty').notEmpty();
-  req.checkBody('rank', 'Required field(s) is empty').notEmpty();
+  req.checkBody('firstname', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('lastname', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('mobile', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('dob', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('email', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('faculty', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('dept', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('level', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('total', 'Empty or invalid field(s)').notEmpty();
+  req.checkBody('rank', 'Empty or invalid field(s)').notEmpty();
 
   // Error(s) check
   var errors = req.validationErrors();
@@ -214,6 +214,6 @@ app.delete('/studentview/:id', (req, res) => {
 });
 
 // Start Server
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.port || 3000, function() {
     console.log("Listening to 127.0.0.1:3000");
 });

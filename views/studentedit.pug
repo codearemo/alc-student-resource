@@ -26,19 +26,22 @@ block content
             form(method="POST", action="/studentview/edit/" + student._id)
               .form-group
                 label(for='firstname') Firstname
-                input#firstname.form-control(placeholder='Firstname', name = "firstname", value = student.firstname)
+                input#firstname.form-control(placeholder='Firstname', name = "firstname", value = student.firstname, required)
               .form-group
                 label(for='lastname') Lastname
-                input#lastname.form-control(placeholder='Lastname', name = "lastname", value = student.lastname)
+                input#lastname.form-control(placeholder='Lastname', name = "lastname", value = student.lastname, required)
               .form-group
                 label(for='mobile') Mobile
-                input#mobile.form-control(placeholder='+2348XXXXXXXX', name = "mobile", value = student.mobile)
+                input#mobile.form-control(placeholder='234XXXXXXXXXXX', name = "mobile",type='tel', value = student.mobile)
               .form-group
                 label(for='dob') Date of Birth 
-                input#dob.form-control(placeholder='dd/mm/yy', name = "dob", value = student.dob)
+                #datepicker.input-group.date(data-date-format='dd-mm-yyyy')
+                  input.form-control(type='date', name='dob', value = student.dob, required)
+                  span.input-group-addon
+                    i.fa.fa-calendar(aria-hidden='true')
               .form-group
                 label(for='email') Email
-                input#email.form-control(placeholder='name@domain.com', name = "email", type="email", value = student.email)
+                input#email.form-control(placeholder='name@domain.com', name = "email", type="email", value = student.email, required)
               .form-group
                 label(for='exampleFormControlSelect1') Gender
                 select#exampleFormControlSelect1.form-control(name = "g", value = student.g)
@@ -50,13 +53,13 @@ block content
                 input.form-control(type='text', placeholder='Readonly input here…', readonly='', value = "https://ssl.prcdn.com/uk/people/default-profile.png?1406639312", name = "img")
               .form-group
                 label(for='faculty') Faculty
-                input#faculty.form-control(placeholder='Faculty', name = "faculty", value = student.faculty)
+                input#faculty.form-control(placeholder='Faculty', name = "faculty", value = student.faculty, required, type="text")
               .form-group
                 label(for='dept') Department 
-                input#dept.form-control(placeholder='Department', name = "dept", value = student.dept)
+                input#dept.form-control(placeholder='Department', name = "dept", value = student.dept, required, type="text")
               .form-group
                 label(for='exampleFormControlSelect1') Level
-                select#exampleFormControlSelect1.form-control(name = "level", value = student.level)
+                select#exampleFormControlSelect1.form-control(name = "level", value = student.level, required)
                   option 100
                   option 200
                   option 300
@@ -64,10 +67,10 @@ block content
                   option 500
               .form-group
                 label(for='total') Total Students
-                input#total.form-control(placeholder='Class Total', name = "total", value = student.total)
+                input#total.form-control(placeholder='Class Total', name = "total", value = student.total, required, type = "number")
               .form-group
                 label(for='rank') Stundent's Class Rank
-                input#rank.form-control(placeholder='Student Rank', name = "rank", value = student.rank)
+                input#rank.form-control(placeholder='Student Rank', name = "rank", value = student.rank, required, type = "number")
               .form-group
                 label(for='exampleFormControlSelect1') grade
                 select#exampleFormControlSelect1.form-control(name = "grade", value = student.grade)
