@@ -32,7 +32,7 @@ block content
                 input#lastname.form-control(placeholder='Lastname', name = "lastname", typr="text")
               .form-group
                 label(for='mobile') Mobile
-                input#mobile.form-control(placeholder='234XXXXXXXXXX', name = "mobile",type='tel')
+                input#mobile.form-control(placeholder='234XXXXXXXXXX', name = "mobile",type='tel', pattern="[0-9]{13}")
               .form-group
                 label(for='dob') Date of Birth 
                 #datepicker.input-group.date(data-date-format='dd-mm-yyyy')
@@ -67,10 +67,10 @@ block content
                   option 500
               .form-group
                 label(for='total') Total Students
-                input#total.form-control(placeholder='Class Total', name = "total", type = "number")
+                input#total.form-control(placeholder='Total number in class', name = "total", type = "number", pattern="[0-9]{3}")
               .form-group
                 label(for='rank') Stundent's Class Rank
-                input#rank.form-control(placeholder='Student Rank', name = "rank", type = "number")
+                input#rank.form-control(placeholder='Student Rank', name = "Class position", type = "number", pattern="[0-9]{3}")
               .form-group
                 label(for='exampleFormControlSelect1') grade
                 select#exampleFormControlSelect1.form-control(name = "grade")

@@ -65,4 +65,7 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("input#mobile").intlTelInput();
+
 });
