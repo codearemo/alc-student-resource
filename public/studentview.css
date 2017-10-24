@@ -17,7 +17,7 @@ div#name-tag {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    padding-bottom: 50px;
+    padding-bottom: 35px;
     color: #fff;
     text-align: center;
     font-family: 'Droid Sans', sans-serif;
@@ -33,6 +33,7 @@ img {
     height: 250px;
     border-radius: 50%;
     background-color: #fff;
+    margin-bottom: 15px;
 }
 
 ul li {
@@ -98,6 +99,7 @@ div#records ul li {
 @media all and (max-width: 500px) {
     #profilehead {
         flex-direction: column;
+        
     }
 }
 
