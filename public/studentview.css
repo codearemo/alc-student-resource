@@ -1,10 +1,38 @@
-.container{
-    padding: 100px 10px;;
+.container-fluid {
+    padding: 0;
+}
+
+#profile-pic-bg {
+    background-color: #212529;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+#profile-pic {
+    display: flex;
+    justify-content: center;
+}
+    
+div#name-tag {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 50px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Droid Sans', sans-serif;
+}
+#profilehead{
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-between;
 }
 
 img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #fff;
 }
 
 ul li {
@@ -23,9 +51,12 @@ span {
     padding-left: 10px;
 }
 
-h4.recordsheader {
+#personal-records {
+    padding-top: 75px;
+}
+
+.recordsheader {
     color: #d3d3d3;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 div#records {
@@ -35,8 +66,8 @@ div#records {
 
 div#records ul li {
     padding: 15px;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 19px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 #button-row {
@@ -60,5 +91,13 @@ div#records ul li {
 
 #edit-btn {
     margin-right: 5px;
+}
+
+
+
+@media all and (max-width: 500px) {
+    #profilehead {
+        flex-direction: column;
+    }
 }
 

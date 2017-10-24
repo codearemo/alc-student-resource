@@ -2,6 +2,7 @@ extends layout
 
 block content
     link(type='text/css', rel='stylesheet', href='/studentview.css')
+    link(href='https://fonts.googleapis.com/css?family=Droid+Sans|Source+Sans+Pro', rel='stylesheet')
 
     body
       nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
@@ -16,7 +17,7 @@ block content
                 span.sr-only (current)
             li.nav-item
               a.nav-link(href='/student/add') Add Student
-      .container
+      .container-fluid
         != messages('message', locals)
         #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
           .modal-dialog(role='document')
@@ -31,57 +32,55 @@ block content
                 button.btn.btn-secondary(type='button', data-dismiss='modal') Close
                 button#delete-btn-home.btn.btn-danger(type='button') Delete
         .row
-          .col-md-12
-            h2 Student Profile
-          .col-md-4
-            .col-md-12
-              img(src=`${student.img}`, alt='')
-            .col-md-12
-              h4.recordsheader Personal
-              ul
-                li
-                  | Lastname: 
-                  em #{student.lastname}
-                li
-                  | Firstname: 
-                  em #{student.firstname}
-                li
-                  | Gender: 
-                  em #{student.g}
-                li
-                  | DOB
-                  span d/m/y
-                  |  : 
-                  em #{student.dob}
-                li
-                  | Mobile: 
-                  em +#{student.mobile}
+          #profile-pic-bg.col-md-12
+            #profilehead.container
+              #profile-pic.col-md-4
+                img(src=`${student.img}`)
+              #name-tag.col-md-4
+                h2 #{student.lastname}
+                h2 #{student.firstname}
+        .row
+          .container
+            .row
+              #personal-records.col-md-5
+                h4.recordsheader Personal
                 ul
-          .col-md-7#records
-            h4.recordsheader Education
-            ul
-              li
-                | Faculty: 
-                em #{student.faculty}
-              li
-                | Department: 
-                em #{student.dept}
-              li
-                | Level: 
-                em #{student.level}
-              li
-                | Class Total: 
-                em #{student.total}
-              li
-                | Rank: 
-                em #{student.rank}
-              li
-                | Grade: 
-                em #{student.grade}
-              ul
-        #button-row.row
-          #button-back.row
-            button#back-btn.btn.btn-outline-secondary(type='button') Back
-          #button-edit-del.row
-            button#edit-btn.btn.btn-outline-primary(type='button', data-id=`${student._id}`) Edit
-            button#delete-btn.btn.btn-outline-danger(type='button', data-id=`${student._id}`, data-toggle="modal", data-target="#exampleModal") Delete
+                  li
+                    | Gender: 
+                    em #{student.g}
+                  li
+                    | DOB: 
+                    em #{student.dob}
+                  li
+                    | Mobile: 
+                    em +#{student.mobile}
+                  ul
+              .col-md-7#records
+                h4.recordsheader Education
+                ul
+                  li
+                    | Faculty: 
+                    em #{student.faculty}
+                  li
+                    | Department: 
+                    em #{student.dept}
+                  li
+                    | Level: 
+                    em #{student.level}
+                  li
+                    | Class Total: 
+                    em #{student.total}
+                  li
+                    | Rank: 
+                    em #{student.rank}
+                  li
+                    | Grade: 
+                    em #{student.grade}
+                  ul
+        .container
+          #button-row.row
+            #button-back.row
+              button#back-btn.btn.btn-outline-secondary(type='button') Back
+            #button-edit-del.row
+              button#edit-btn.btn.btn-outline-primary(type='button', data-id=`${student._id}`) Edit
+              button#delete-btn.btn.btn-outline-danger(type='button', data-id=`${student._id}`, data-toggle="modal", data-target="#exampleModal") Delete
