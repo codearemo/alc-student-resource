@@ -34,6 +34,7 @@ h2#no-text, h6#no-text {
     box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2);
     margin: 10px 0;
     cursor: pointer;
+    height: 320px;
 }
 
 #sec:hover {
