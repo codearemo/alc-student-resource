@@ -18,9 +18,10 @@ block content
               a.nav-link(href='/student/add') Add Student
       .container
         h2 Add Student
-        .col-md-4
+        .row
+          .col-md-10
             if errors
-                div(class="alert alert-danger") #{errors[1].msg}
+              div(class="alert alert-danger") #{errors[1].msg}
         .row
           .col-md-8
             form(method="POST", action="/student/add")
@@ -70,7 +71,7 @@ block content
                 input#total.form-control(placeholder='Total number in class', name = "total", type = "number", pattern="[0-9]{3}")
               .form-group
                 label(for='rank') Stundent's Class Rank
-                input#rank.form-control(placeholder='Student Rank', name = "Class position", type = "number", pattern="[0-9]{3}")
+                input#rank.form-control(placeholder='Student Rank', name = "rank", type = "number", pattern="[0-9]{3}")
               .form-group
                 label(for='exampleFormControlSelect1') grade
                 select#exampleFormControlSelect1.form-control(name = "grade")
