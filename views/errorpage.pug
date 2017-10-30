@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    link(type='text/css', rel='stylesheet', href='/dashboardstyles.css')
+
+    body
+      nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/') ALC College
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo02', aria-controls='navbarTogglerDemo02', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarTogglerDemo02.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item.active
+              a.nav-link(href='/')
+                | Dashboard
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='/student/add') Add Student
+      .container
+        div#no-student-res(style="padding-top:120px;")
+            i.fa.fa-frown-o.fa-5x
+            h2#no-text Oops! Wrong spot...need a compass?
+            h6#no-text Please check the URL and make sure everything is looking good
+            
+        

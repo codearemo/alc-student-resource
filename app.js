@@ -213,7 +213,12 @@ app.delete('/studentview/:id', (req, res) => {
   });
 });
 
+// 404 erroe page
+app.get('*', (req, res) => {
+  res.render('errorpage');
+});
+
 // Start Server
 app.listen(process.env.PORT || 3000, function() {
-    console.log("Listening to 127.0.0.1:3000");
+    console.log("Server is now live...");
 });

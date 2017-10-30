@@ -3,6 +3,7 @@ extends layout
 block content
     link(type='text/css', rel='stylesheet', href='/studentadd.css')
 
+
     body
       nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
         a.navbar-brand(href='/') ALC College
@@ -36,10 +37,10 @@ block content
                 input#mobile.form-control(placeholder='234XXXXXXXXXX', name = "mobile",type='tel', pattern="[0-9]{13}")
               .form-group
                 label(for='dob') Date of Birth 
-                #datepicker.input-group.date(data-date-format='dd-mm-yyyy')
-                  input.form-control(type='date', name='dob')
-                  span.input-group-addon
-                    i.fa.fa-calendar(aria-hidden='true')
+                #datepicker.input-group.date(data-date-format='dd-mm-yyyy', data-provide="datepicker")
+                  input#calendar-input.form-control(type='date', name='dob', placeholder='dd/mm/yyyy')
+                    span.input-group-addon
+                      i#calender.fa.fa-calendar(aria-hidden='true')
               .form-group
                 label(for='email') Email
                 input#email.form-control(placeholder='name@domain.com', name = "email", type="email")
