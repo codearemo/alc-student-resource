@@ -216,7 +216,8 @@ $(document).ready(function() {
     $('#faculty').val($('#faculty').attr('data-value'));
     $('#dept').val($('#dept').attr('data-value'));
     $('#level').val($('#level').attr('data-value'));
-    $('#grade').val($('#grade').attr('data-value'))
+    $('#grade').val($('#grade').attr('data-value'));
+    $('#gender').val($('#gender').attr('data-value'));
 });
 
 

@@ -44,7 +44,7 @@ block content
                 input#email.form-control(placeholder='name@domain.com', name = "email", type="email", value = student.email, required)
               .form-group
                 label(for='exampleFormControlSelect1') Gender
-                select#exampleFormControlSelect1.form-control(name = "g", value = student.g)
+                select#gender.form-control(name = "g", data-value = student.g)
                   option M
                   option F
               .form-group
